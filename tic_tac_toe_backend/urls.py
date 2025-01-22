@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from games.views import RegisterView, LoginView, make_move
-from games.views import StartGameView
+from games.views import StartGameView, match_history,UpdateUserProfileView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -31,5 +31,7 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('make_move/', make_move, name='make_move'),
+    path('match-history/', match_history, name='match-history'),
+    path('update-profile/', UpdateUserProfileView.as_view(), name='update-profile'),
 ]
 
